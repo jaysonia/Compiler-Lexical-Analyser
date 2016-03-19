@@ -1,52 +1,41 @@
+/*
+	Author: Jason O'Connell
+	Student number: 13710859
+*/
 package Components;
 
-import java.util.Map;
+import java.util.HashMap;
 
 public class TrieNode {
 	
 	private int id;
-	private boolean accepting;
-	private Map<Character, TrieNode> children;
+	private HashMap<Character, TrieNode> children;
 	
-	//setup root node
+	//Constructor
 	public TrieNode(){
-		id=0;
-		children =null;
-		accepting = false;
-		return;
-	}
-	
-	public TrieNode(int id){
-		this.id = id;
-		accepting = false;
+		id = 0;
+		children = new HashMap<Character, TrieNode>();
 		return;
 	}
 	
 	public TrieNode addChild(char letter){
-		children.put(letter, new TrieNode(id++));
+		children.put(letter, new TrieNode());
 		return children.get(letter);
 	}
 	
-	public boolean isAccepting(){
-		return accepting;
+	public TrieNode getChild(char c){
+		return children.get(c);
 	}
 	
 	public int getId(){
 		return id;
 	}
 	
-	public boolean isChild(char c){
-		if (children.containsKey(c))
-			return true;
-		else
-			return false;
+	public boolean isChild(Character c){
+		return children.containsKey(c);
 	}
 	
-	public void setAccepting(){
-		accepting = true;
-	}
-	
-	public TrieNode getChild(char c){
-		return children.get(c);
+	public void setAccepting(int id){
+		this.id = id;
 	}
 }
