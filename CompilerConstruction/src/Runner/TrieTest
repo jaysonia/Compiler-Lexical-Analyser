@@ -1,0 +1,21 @@
+/*
+	Author: Jason O'Connell
+	Student number: 13710859
+*/
+package Runner;
+
+import Components.LexDriver;
+
+public class TrieTest {
+	
+	public static void main(String [] args){
+		LexDriver lex = new LexDriver();
+		if (args.length == 0)
+			System.out.println("No filename passed in");
+		else{
+			lex.readFile(args[0]);
+			lex.print();
+		}
+	}
+	
+}
